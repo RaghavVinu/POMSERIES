@@ -2,5 +2,7 @@ package com.qa.tests;
 
 public class SearchTests {
 
-    public SearchTests(){}
+    public SearchTests(){
+       System.out.println("Sample Test");
+    }
 }
