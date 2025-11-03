@@ -20,7 +20,7 @@ pipeline{
             steps{
                catchError(buildResult:'SUCCESS' , stageResult: 'FAILURE'){
                   git branch: 'test', url: 'https://github.com/RaghavVinu/POMSERIES.git'
-                  sh "mvn clean test -Dsurefire.suiteXmlFiles=src/main/java/com/qa/runners/testng.xml"
+                  sh "mvn clean test -Dsurefire.suiteXmlFiles=./src/main/java/com/qa/runners/testng.xml"
                }
             }
         }
