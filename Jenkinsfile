@@ -18,7 +18,10 @@ pipeline{
         }
         stage("Executing Sanity Test Cases"){
             steps{
-                echo("Running Sanity test cases")
+               catchError(buildResult:'SUCCESS' stageResult: 'FAILURE'){
+                  git 'https://github.com/RaghavVinu/POMSERIES.git'
+                  sh 'mvn clean test -Dsurefire.suiteXmlFiles='src/main/resources/config/qa_config.properties'
+               }
             }
         }
     }
